@@ -1,0 +1,27 @@
+<template>
+  <require from="./index.css"></require>
+
+  <section class="notebook-list au-animate">
+    <form submit.delegate="createNotebook()">
+      
+      <div class="form-group">
+        <label>Notebook Name</label>
+        <input value.bind="notebookName" class="form-control">
+      </div>
+      <button>
+        <span>
+          <i class="fa fa-plus"></i>
+        </span>
+      Create notebook</button>
+    </form>
+    <div>
+      <ul>
+        <li repeat.for="item of notebookList">
+          <a route-href="route:notes; params.bind: { filter: item.id}">
+            <h3>${item.title}</h3>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</template>
