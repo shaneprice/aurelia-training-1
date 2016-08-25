@@ -14,10 +14,10 @@ export class NotebooksIndex {
 
   createNotebook() {
     if (!this.notebookName) {
-      return;
+      return Promise.resolve();
     }
 
-    this.server.createNotebook(this.notebookName).then(notebook => {
+    return this.server.createNotebook(this.notebookName).then(notebook => {
       this.notebookName = '';
       this.notebookList.push(notebook);
     });

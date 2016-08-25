@@ -9,9 +9,12 @@ Promise.config({
 });
 
 export function configure(aurelia) {
-  aurelia.use
-    .standardConfiguration()
-    .feature('resources');
+ aurelia.use
+  .standardConfiguration()
+  .feature('resources')
+  .plugin('aurelia-animator-css')
+  .plugin('aurelia-dialog');
+
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
